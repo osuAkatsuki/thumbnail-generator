@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 1920px !important; height: 1080px !important">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <title>Score Template</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: quicksand-medium;
+      src: url(/static/fonts/Quicksand-Medium.ttf);
+    }
+
+    @font-face {
+      font-family: quicksand-semibold;
+      src: url(/static/fonts/Quicksand-SemiBold.ttf);
+    }
+
+    :root {
+      --border-top: 244px;
+      --white-line-height: 8px;
+      --title-text-color: {{ title-colour }};
+      --misc-text-color: {{ misc-text-colour }};
+    }
+
+    .container {
+      text-align: center;
+      width: 1920px;
+      height: 1080px;
+      position: absolute;
+      z-index: -100;
+    }
+
+    .top-container {
+      position: absolute;
+      height: var(--border-top);
+      width: 1920px;
+      z-index: 1;
+    }
+
+    .line-container {
+      top: var(--border-top);
+      position: relative;
+      z-index: 2;
+    }
+
+    .background-container {
+      position: absolute;
+      text-align: center;
+      margin: 0 auto;
+      filter: brightness(110%);
+    }
+
+    .bottom-container {
+      z-index: 2;
+      top: var(--border-top);
+      position: relative;
+      height: calc(1080px - var(--border-top));
+    }
+
+    .username {
+      text-shadow: 0 0 7px #fff, 0 0 30px #000, 0 0 40px #000;
+      color: #ffffff;
+      font-size: 130px;
+      font-family: "quicksand-medium";
+      top: calc(var(--border-top) + var(--white-line-height) - 200px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .mode-icon {
+      filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 30px #000);
+      top: calc(251px - 365px); /* i honestly dont know how it works. */
+      left: 1730px;
+      position: relative;
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .white-horizontal-line {
+      border-top: var(--white-line-height) solid white;
+      box-shadow: 0 0 5px #edc8ff, 0 0 30px #000, 0 0 40px #000;
+    }
+
+    .flag {
+      top: calc(62px + 16px);
+      left: 64px;
+      position: relative;
+      z-index: 3;
+      width: 94px;
+      height: 62px;
+      border-radius: 15px;
+      border: 8px solid #3d4349;
+      border-bottom: 8px solid #3d4349;
+    }
+
+    .avatar {
+      box-shadow: 0 0 30px #000;
+      z-index: 2;
+      left: 64px;
+      width: 320px;
+      height: 320px;
+      position: relative;
+      border-radius: 15px;
+      border: 6px solid #3d4349;
+    }
+
+    .logo {
+      position: relative;
+      width: 590px;
+      top: 55px;
+      left: 28px;
+      height: 335px;
+      z-index: 1;
+      filter: drop-shadow(0 0 30px #000);
+    }
+
+    .general-info-section {
+      z-index: 3;
+      position: relative;
+      top: -650px;
+      left: 400px;
+      width: 1520px;
+      font-family: "quicksand-medium";
+      color: white;
+    }
+
+    .artist-name {
+      text-shadow: 0 0 7px #fff, 0 0 30px #000, 0 0 40px #000;
+      font-size: 90px;
+    }
+
+    .song-name {
+      font-size: 90px;
+      /* font-size: 2.5vw; */
+      color: var(--title-text-color);
+      text-shadow: 0 0 7px var(--title-text-color), 0 0 30px #000, 0 0 40px #000;
+      font-family: "quicksand-semibold" !important;
+    }
+
+    .score-data {
+      text-shadow: 0 0 7px #fff, 0 0 30px #000, 0 0 40px #000;
+      font-size: 60px;
+    }
+
+    .middle-info-section {
+      z-index: 2;
+      position: relative;
+      top: -500px;
+      left: 740px;
+      width: 300px;
+      font-family: "quicksand-medium";
+      color: white;
+    }
+
+    .pp-value {
+      font-size: 150px;
+      text-shadow: 0 0 7px white, 0 0 30px #000, 0 0 40px #000;
+    }
+
+    .bottom-info-section {
+      z-index: 2;
+      position: relative;
+      top: -750px;
+      left: 1350px;
+      width: 400px;
+      font-family: "quicksand-medium";
+      color: white;
+    }
+
+    .accuracy-value {
+      font-size: 100px;
+      text-shadow: 0 0 7px white, 0 0 30px #000, 0 0 40px #000;
+    }
+
+    .break-line {
+      display: block;
+      margin: 0px 0;
+    }
+
+    .misc-text {
+      text-shadow: 0 0 7px var(--misc-text-color), 0 0 30px #000, 0 0 40px #000;
+      font-size: 120px;
+      color: var(--misc-text-color);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="background-container">
+        <img src="{{ background-src }}" style="width: 1920px" />
+      </div>
+      <div class="top-container">
+        <div class="username">{{ username }}</div>
+        <div class="mode-icon">
+          <img src="/static/img/mode-{{ mode }}.png" width="134px" height="134px" />
+        </div>
+      </div>
+      <div class="line-container">
+        <div class="white-horizontal-line"></div>
+      </div>
+      <div class="bottom-container">
+        <div class="flag">
+          <!--  Not the most pleasing but the best flags there soo. -->
+          <img
+            src="https://raw.githubusercontent.com/ppy/osu-resources/master/osu.Game.Resources/Textures/Flags/{{ country }}.png"
+            width="98px"
+            height="65px"
+            style="margin-left: -2px; margin-top: -2px"
+          />
+        </div>
+        <div class="avatar">
+          <img
+            src="https://a.akatsuki.pw/{{ userid }}"
+            width="320px"
+            height="320px"
+            style="border-radius: 7px"
+          />
+        </div>
+        <div class="logo">
+          <img src="/static/img/logo.png" width="590px" height="335px" />
+        </div>
+        <div class="general-info-section">
+          <div class="artist-name">{{ map-artist }}</div>
+          <div class="song-name">{{ map-title }}</div>
+          <div class="score-data">[{{ map-diff }}] +{{ modes }} | {{ score-combo }}x/{{ map-combo }}x</div>
+        </div>
+        <div class="middle-info-section">
+          <div class="pp-value">{{ pp-val }}pp</div>
+        </div>
+        <div class="bottom-info-section">
+          <div class="accuracy-value">{{ accuracy-val }}%</div>
+          <div class="break-line"></div>
+          <div class="misc-text">{{ misc-text }}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
