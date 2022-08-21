@@ -79,7 +79,7 @@ def apply_saturation(
     return _apply_blend_mode(image, colour, opacity, blend_modes.hard_light)
 
 
-def apply_new_brightness(  # talk about ugly.
+def apply_new_brightness(
     image: str | Image.Image,
     offsets: tuple[int, int, int, int],
     opacity: float,
@@ -94,7 +94,7 @@ def apply_new_brightness(  # talk about ugly.
     return brightness
 
 
-def apply_gaussian_blur(  # talk about ugly.
+def apply_gaussian_blur(
     image: str | Image.Image,
     offsets: tuple[int, int, int, int],
     blur_radius: int,
