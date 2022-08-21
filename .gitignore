@@ -127,8 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-config.py
-#tmp/*
-static/img/bgs/*.png
-finals/*.png
-static/htmls/*.html
+.data/

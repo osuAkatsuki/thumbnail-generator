@@ -1,2 +1,4 @@
 Pillow
 fastapi
+blend_modes
+numpy

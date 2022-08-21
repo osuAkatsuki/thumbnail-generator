@@ -4,6 +4,11 @@ import glob
 import asyncio
 import logging
 
+TEMP_PATHS = [
+    ".data/temp/htmls",
+    ".data/temp/osz",
+]
+
 
 async def remove_temp_files_thread(interval: int = 24 * 60):
     """
@@ -13,13 +18,11 @@ async def remove_temp_files_thread(interval: int = 24 * 60):
         await asyncio.sleep(interval)
         logging.debug("Performing housekeeping tasks...")
 
-        for path in glob.glob("temp/*"):
-            if os.path.isdir(path):
-                shutil.rmtree(path)
-            else:
-                os.remove(path)
-
-        for html_file in glob.glob("static/htmls/*.html"):
-            os.remove(html_file)
+        for path in TEMP_PATHS:
+            for file in glob.glob(f"{path}/*"):
+                if os.path.isdir(file):
+                    shutil.rmtree(file)
+                else:
+                    os.remove(file)
 
         logging.info("Housekeeping tasks completed.")
