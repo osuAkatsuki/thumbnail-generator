@@ -1,8 +1,10 @@
+from __future__ import annotations
+
+import asyncio
+import glob
+import logging
 import os
 import shutil
-import glob
-import asyncio
-import logging
 
 TEMP_PATHS = [
     ".data/temp/htmls",

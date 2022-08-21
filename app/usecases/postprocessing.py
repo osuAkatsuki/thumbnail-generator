@@ -1,11 +1,14 @@
-from PIL import Image
-from PIL import ImageFilter
-from PIL import ImageOps
-from PIL import ImageDraw
-from PIL import ImageEnhance
+from __future__ import annotations
+
+from typing import Callable
+
 import blend_modes
 import numpy as np
-from typing import Callable
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageEnhance
+from PIL import ImageFilter
+from PIL import ImageOps
 
 
 def _ensure_image(image: str | Image.Image) -> Image.Image:

@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import logging
-from app import config
+
+from app import settings
 
 logging.basicConfig(
-    level=config.LOG_LEVEL,
+    level=settings.LOG_LEVEL,
     format="%(asctime)s %(message)s",
 )
 

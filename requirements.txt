@@ -1,4 +1,5 @@
-Pillow
-fastapi
 blend_modes
+fastapi
 numpy
+Pillow
+pre-commit
