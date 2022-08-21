@@ -3,3 +3,6 @@ fastapi
 numpy
 Pillow
 pre-commit
+starlette_exporter
+uvicorn
+uvloop
