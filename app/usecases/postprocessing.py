@@ -122,3 +122,14 @@ def apply_effects_normal_template(image_path: str) -> Image.Image:
     im4 = apply_saturation(im3, (13, 13, 97), 0.20)
 
     return im4
+
+
+def apply_effects_knockout_template(image_path: str) -> Image.Image:
+    """Apply effects for knockout template."""
+
+    im = resize_image(image_path, (1920, 1080))
+    im1 = apply_shading(im, (0, 0, 0), 0.10)
+    im2 = apply_gaussian_blur(im1, (0, 0, 1920, 0), 3)
+    im3 = apply_saturation(im2, (13, 13, 97), 0.10)
+
+    return im3

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 1920px !important; height: 1080px !important">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <title>Knockout Template</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: quicksand-semibold;
+      src: url(/static/fonts/Quicksand-SemiBold.ttf);
+    }
+
+    :root {
+      --title-text-color: {{ title-text-colour }};
+    }
+
+    .container {
+      text-align: center;
+      width: 1920px;
+      height: 1080px;
+      position: absolute;
+      z-index: -100;
+    }
+
+    .background-container {
+      position: absolute;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .top-container {
+      position: absolute;
+      height: 1080px;
+      width: 1920px;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 691px;
+      height: 393px;
+      position: relative;
+      left: 603px;
+      top: 50px;
+      z-index: 1;
+      filter: drop-shadow(0 0 30px #000);
+    }
+
+    .text-container {
+      top: 50px;
+      z-index: 2px;
+      color: white;
+      font-family: "quicksand-semibold";
+      position: relative;
+    }
+
+    .top-number-text {
+      text-shadow: 0 0 7px #fff, 0 0 30px #000, 0 0 40px #000, 0 0 40px #000;
+      font-size: 104px;
+    }
+
+    .map-info {
+      color: var(--title-text-color);
+      text-shadow: 0 0 7px var(--title-text-color), 0 0 30px #000, 0 0 40px #000,
+        0 0 50px #000;
+      font-size: 88px;
+    }
+
+    .map-diff {
+      text-shadow: 0 0 7px #fff, 0 0 30px #000, 0 0 40px #000, 0 0 40px #000;
+      font-size: 93px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="background-container">
+        <img src="{{ background-src }}" style="width: 1920px" />
+      </div>
+      <div class="top-container">
+        <div class="logo">
+          <img src="/static/img/logo.png" width="691px" height="393px" />
+        </div>
+        <div class="text-container">
+          <div class="top-number-text">Top {{ number }} Knockout</div>
+          <div class="map-info">{{ map-artist }} - {{ map-title }}</div>
+          <div class="map-diff">[{{ map-diff }}]</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
